@@ -1,0 +1,35 @@
+<ButtonConf ButtonName="COMPANY" Description="Choose internal company to bill" QuickCommand="COMPANY">
+  <QuestionsBlock WindowFormTitle="Choose company to bill" SubmitButtonName="SUBMIT" HideSubmitButton="true" WindowId="fare_type_window" Designer="True">
+    <Button Width="200" Content="RISC Capital Services" OnClickAction="Execute Action" PostClickAction="Close Window" VarName="SBAuto_Button_16eb806c-5ce5-415f-b80f-8c7f71d7b8b6" ValidateControls="False" TabIndex="1" X="10" Y="10">
+      <Action>
+        <RunCommand ClearScreen="False" StandardCommand="True">CMT/RCS</RunCommand>
+      </Action>
+    </Button>
+    <Button Width="200" Content="Ultra Horizon" OnClickAction="Execute Action" PostClickAction="Close Window" VarName="SBAuto_Button_644bbae9-0616-41a9-b444-35a28213763b" ValidateControls="False" TabIndex="2" X="10" Y="50">
+      <Action>
+        <RunCommand ClearScreen="False" StandardCommand="True">CMT/UH</RunCommand>
+      </Action>
+    </Button>
+    <Button Width="200" Content="Elliptic Systems" OnClickAction="Execute Action" PostClickAction="Close Window" VarName="SBAuto_Button_2d0bc6ed-b8e1-4fd9-ae12-f086f1b5c047" ValidateControls="False" TabIndex="2" X="10" Y="90">
+      <Action>
+        <RunCommand ClearScreen="False" StandardCommand="True">CMT/ES</RunCommand>
+      </Action>
+    </Button>
+    <Button Width="200" Content="OPSEC" OnClickAction="Execute Action" PostClickAction="Close Window" VarName="SBAuto_Button_876b5ef5-2a1b-4053-9e1a-c86899c2f9f8" ValidateControls="False" TabIndex="2" X="10" Y="130">
+      <Action>
+        <RunCommand ClearScreen="False" StandardCommand="True">CMT/OPSEC</RunCommand>
+      </Action>
+    </Button>
+    <Button Width="200" Content="Tinkerstruct" OnClickAction="Execute Action" PostClickAction="Close Window" VarName="SBAuto_Button_ae2e4cdf-3d91-4f20-b35c-b38e5f811d19" ValidateControls="False" TabIndex="2" X="10" Y="170">
+      <Action>
+        <RunCommand ClearScreen="False" StandardCommand="True">CMT/TS</RunCommand>
+      </Action>
+    </Button>
+    <Button Width="200" Content="SRS" OnClickAction="Execute Action" PostClickAction="Close Window" VarName="SBAuto_Button_ae2e4cdf-3d91-4f20-b35c-b38e5f811d19" ValidateControls="False" TabIndex="2" X="10" Y="210">
+      <Action>
+        <RunCommand ClearScreen="False" StandardCommand="True">CMT/SRS</RunCommand>
+      </Action>
+    </Button>
+  </QuestionsBlock>
+  <ShowMessage ShowInTerminal="True" ClearScreen="True">COMPLETE</ShowMessage>
+</ButtonConf>

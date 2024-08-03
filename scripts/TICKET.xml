@@ -1,0 +1,24 @@
+<ButtonConf EasyMode="False" ButtonName="TICKET" Description="Ticket this PNR" QuickCommand="TICKET">
+  <QuestionsBlock WindowFormTitle="SELECT FARE TYPE" SubmitButtonName="SUBMIT" HideSubmitButton="true" WindowId="fare_type_window" Designer="True">
+    <Button Width="200" Content="PRIVATE" OnClickAction="Execute Action" PostClickAction="Close Window" VarName="private_fare" ValidateControls="False" TabIndex="1" X="10" Y="10">
+      <Action>
+        <RunCommand ClearScreen="False" StandardCommand="True">NP.AGYTARIFF-NEGO</RunCommand>
+      </Action>
+    </Button>
+    <Button Width="200" Content="PUBLIC" OnClickAction="Execute Action" PostClickAction="Close Window" VarName="public_fare" ValidateControls="False" TabIndex="2" X="10" Y="50">
+      <Action>
+        <RunCommand ClearScreen="False" StandardCommand="True">NP.AGYTARIFF-IATA</RunCommand>
+      </Action>
+    </Button>
+  </QuestionsBlock>
+  <RunCommand StandardCommand="True">NP.AGYKD-890210</RunCommand>
+  <RunCommand StandardCommand="True">NP.AGYTKT-46</RunCommand>
+  <RunCommand StandardCommand="True">NP.AGYNOPRCG</RunCommand>
+  <DateTime VarName="today_date" DateTimeFormat="ddMMM" Language="en" AddOrRemoveDays="0" AddOrRemoveHours="0" AddOrRemoveMinutes="0" TimeZone="GMT Standard Time"></DateTime>
+  <RunCommand StandardCommand="True">T.@TAU/[today_date]</RunCommand>
+  <RunCommand StandardCommand="True">R.RCSTRAVEL</RunCommand>
+  <RunCommand StandardCommand="True">ER</RunCommand>
+  <RunCommand StandardCommand="True">R.RCSTRAVEL</RunCommand>
+  <RunCommand StandardCommand="True">QEB/74QP/40</RunCommand>
+  <ShowMessage ShowInTerminal="True">PNR SUBMITTED FOR TICKETING</ShowMessage>
+</ButtonConf>
