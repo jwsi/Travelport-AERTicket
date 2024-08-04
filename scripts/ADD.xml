@@ -37,18 +37,16 @@
     </ValidationRules>
     <DefaultValue>FIRST LAST</DefaultValue>
   </TextBox>
-  <ComboBox VarName="number" Question="Enter passenger number" Width="80" Return="Value" Display="ValueKey" SelectedItemIndex="1">
-    <ComboBoxItem>1</ComboBoxItem>
-    <ComboBoxItem>2</ComboBoxItem>
-    <ComboBoxItem>3</ComboBoxItem>
-    <ComboBoxItem>4</ComboBoxItem>
-    <ComboBoxItem>5</ComboBoxItem>
-    <ComboBoxItem>6</ComboBoxItem>
-    <ComboBoxItem>7</ComboBoxItem>
-    <ComboBoxItem>8</ComboBoxItem>
-    <ComboBoxItem>9</ComboBoxItem>
-  </ComboBox>
   <RunCommand StandardCommand="True">C*[company]-[name]</RunCommand>
-  <RunCommand StandardCommand="True">CMP/P-[number]/+1[number]</RunCommand>
+  <BookingFileBrowser VarName="passenger_count" RefreshBookingFile="False" LoadFiledFaresDetails="False">Passengers.Count</BookingFileBrowser>
+  <ConditionalAction Condition="[passenger_count]&gt;=1">
+    <True>
+      <ArithmeticalOperation VarName="number">[passenger_count]+1</ArithmeticalOperation>
+      <RunCommand StandardCommand="True">CMP/P-[number]/+1[number]</RunCommand>
+    </True>
+    <False>
+      <RunCommand StandardCommand="True">CMP/P-1/+11</RunCommand>
+    </False>
+  </ConditionalAction>
   <ShowMessage ShowInTerminal="True" ClearScreen="True">COMPLETE</ShowMessage>
 </ButtonConf>
