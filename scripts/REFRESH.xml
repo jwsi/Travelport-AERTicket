@@ -1,0 +1,5 @@
+<ButtonConf ButtonName="REFRESH" Description="Refresh PNR" QuickCommand="REFRESH">
+  <BookingFileBrowser VarName="reference" RefreshBookingFile="False" LoadFiledFaresDetails="False">RecordLocator</BookingFileBrowser>
+  <RunCommand StandardCommand="True">I</RunCommand>
+  <RunCommand StandardCommand="True">*[reference]</RunCommand>
+</ButtonConf>
