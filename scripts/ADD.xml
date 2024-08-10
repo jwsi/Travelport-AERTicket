@@ -5,16 +5,44 @@
     </ValidationRules>
     <DefaultValue>FIRST LAST</DefaultValue>
   </TextBox>
-  <RunCommand StandardCommand="True">C*RCS-[name]</RunCommand>
   <BookingFileBrowser VarName="passenger_count" RefreshBookingFile="False" LoadFiledFaresDetails="False">Passengers.Count</BookingFileBrowser>
-  <ConditionalAction Condition="[passenger_count]&gt;=1">
+  <ArithmeticalOperation VarName="number">[passenger_count]+1</ArithmeticalOperation>
+  <ConditionalAction Condition="[number]==1">
     <True>
-      <ArithmeticalOperation VarName="number">[passenger_count]+1</ArithmeticalOperation>
-      <RunCommand StandardCommand="True">CMP/P-[number]/+1[number]</RunCommand>
+      <RunCommand StandardCommand="True">C*RCS</RunCommand>
+      <RunCommand StandardCommand="True">CM/</RunCommand>
+    </True>
+    <False></False>
+  </ConditionalAction>
+  <RunCommand StandardCommand="True">C*RCS-[name]</RunCommand>
+  <GetString VarName="first"><![CDATA[10N\/(.*)]]></GetString>
+  <GetString VarName="last"><![CDATA[11N\/(.*)]]></GetString>
+  <GetString VarName="middle"><![CDATA[12N\/(.*)]]></GetString>
+  <GetString VarName="nationality"><![CDATA[13N\/(.*)]]></GetString>
+  <GetString VarName="dob"><![CDATA[14N\/(.*)]]></GetString>
+  <GetString VarName="pp_issuer"><![CDATA[15N\/(.*)]]></GetString>
+  <GetString VarName="pp_number"><![CDATA[16N\/(.*)]]></GetString>
+  <GetString VarName="pp_expiry"><![CDATA[17N\/(.*)]]></GetString>
+  <GetString VarName="sex"><![CDATA[18N\/(.*)]]></GetString>
+  <GetString VarName="mobile"><![CDATA[19N\/(.*)]]></GetString>
+  <GetString VarName="email"><![CDATA[20N\/(.*)]]></GetString>
+  <ConditionalAction Condition="[number]==1">
+    <True>
+      <RunCommand StandardCommand="True">CMP/P-[number]/+2-4</RunCommand>
     </True>
     <False>
-      <RunCommand StandardCommand="True">CMP/P-1/+11</RunCommand>
+      <RunCommand StandardCommand="True">CMP/P-[number]</RunCommand>
     </False>
   </ConditionalAction>
+  <ConditionalAction Condition="[middle]==">
+    <True>
+      <RunCommand StandardCommand="True">SI.P[number]/SSRDOCSYYHK1/P/[pp_issuer]/[pp_number]/[nationality]/[dob]/[sex]/[pp_expiry]/[last]/[first]</RunCommand>
+    </True>
+    <False>
+      <RunCommand StandardCommand="True">SI.P[number]/SSRDOCSYYHK1/P/[pp_issuer]/[pp_number]/[nationality]/[dob]/[sex]/[pp_expiry]/[last]/[first]/[middle]</RunCommand>
+    </False>
+  </ConditionalAction>
+  <RunCommand StandardCommand="True">SI.P[number]/SSRCTCMYYHK1/[mobile]/EN</RunCommand>
+  <RunCommand StandardCommand="True">SI.P[number]/SSRCTCEYYHK1/[email]/EN</RunCommand>
   <ShowMessage ShowInTerminal="True" ClearScreen="True">COMPLETE</ShowMessage>
 </ButtonConf>
