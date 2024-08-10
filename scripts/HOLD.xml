@@ -4,4 +4,6 @@
   <RunCommand StandardCommand="True">T.TAU/[ticket_date]</RunCommand>
   <RunCommand StandardCommand="True">R.RCSTRAVEL</RunCommand>
   <RunCommand StandardCommand="True">ER</RunCommand>
+  <RunCommand StandardCommand="True">REFRESH</RunCommand>
+  <ShowMessage ShowInTerminal="True" ClearScreen="True">COMPLETE</ShowMessage>
 </ButtonConf>
