@@ -26,14 +26,7 @@
   <GetString VarName="sex"><![CDATA[18N\/(.*)]]></GetString>
   <GetString VarName="mobile"><![CDATA[19N\/(.*)]]></GetString>
   <GetString VarName="email"><![CDATA[20N\/(.*)]]></GetString>
-  <ConditionalAction Condition="[number]==1">
-    <True>
-      <RunCommand StandardCommand="True">CMP/P-[number]/+2-4</RunCommand>
-    </True>
-    <False>
-      <RunCommand StandardCommand="True">CMP/P-[number]</RunCommand>
-    </False>
-  </ConditionalAction>
+  <RunCommand StandardCommand="True">CMP/P-[number]</RunCommand>
   <ConditionalAction Condition="[middle]==">
     <True>
       <RunCommand StandardCommand="True">SI.P[number]/SSRDOCSYYHK1/P/[pp_issuer]/[pp_number]/[nationality]/[dob]/[sex]/[pp_expiry]/[last]/[first]</RunCommand>
