@@ -1,0 +1,57 @@
+<ButtonConf ButtonName="CREATE" Description="Create new client file" QuickCommand="CREATE">
+  <TextBox VarName="name" Question="Enter the passenger's known-as name" Width="200" ToolTip="For help, execute LIST to see personnel">
+    <ValidationRules>
+      <RegEx ErrorMessage="INVALID NAME"><![CDATA[(^[A-Z]+ [A-Z]+$)]]></RegEx>
+    </ValidationRules>
+    <DefaultValue>FIRST LAST</DefaultValue>
+  </TextBox>
+  <QuestionsBlock WindowFormTitle="Create passenger file" SubmitButtonName="SAVE" WindowId="bc43a72f-b884-4fd5-8490-5e814a9a1868" Designer="True">
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_ad0c7385-77e0-4065-afbe-4aee7ceeb59f" X="10" Y="10">Title</TextBlock>
+    <TextBox VarName="title" Width="200" ToolTip="Title" Watermark="Title" TabIndex="0" X="210" Y="10"></TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_90a1a6eb-8198-4fff-9493-6d990e78e8a8" X="10" Y="50">First Name</TextBlock>
+    <TextBox VarName="first" Width="200" ToolTip="First Name" Watermark="First Name" TabIndex="1" X="210" Y="50"></TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_58c667e4-8bd7-4062-8086-677286c20198" X="10" Y="90">Last Name</TextBlock>
+    <TextBox VarName="last" Width="200" ToolTip="Last Name" Watermark="Last Name" TabIndex="2" X="210" Y="90"></TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_cdae18bc-ba0f-4f7c-9846-07b8ced94b37" X="10" Y="130">Middle Names (Concatenated)</TextBlock>
+    <TextBox VarName="middle" Width="200" ToolTip="Concatenated Middle Names" Watermark="Middle Names" TabIndex="3" X="210" Y="130"></TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_284df8da-93b1-4208-b832-5b6e350408f1" X="10" Y="170">Nationality (ISO Alpha 2)</TextBlock>
+    <TextBox VarName="nationality" Width="200" ToolTip="Nationality" Watermark="Nationality" TabIndex="4" X="210" Y="170"></TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_79be8a44-861d-48fc-95f5-fc65d0760a3c" X="10" Y="210">Date of Birth (ddMMMyy)</TextBlock>
+    <TextBox VarName="dob" Width="200" ToolTip="Date of Birth" Watermark="Date of Birth (Eg. 02AUG06)" TabIndex="5" X="210" Y="210"></TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_9c41e6f9-d035-4fee-8d66-16aeaab0331b" X="10" Y="250">Passport Country (ISO Alpha 2)</TextBlock>
+    <TextBox VarName="pp_issuer" Width="200" ToolTip="PP Issuer" Watermark="PP Issuer (Eg. GB)" TabIndex="6" X="210" Y="250"></TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_322425d7-1b5f-475c-9b8c-9a19be4aa3a9" X="10" Y="290">Passport Number</TextBlock>
+    <TextBox VarName="pp_num" Width="200" ToolTip="PP Number" Watermark="PP Number" TabIndex="7" X="210" Y="290"></TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_3367281d-7dff-49a1-b355-41284b5d1571" X="10" Y="330">Passport Expiry (ddMMMyy)</TextBlock>
+    <TextBox VarName="pp_exp" Width="200" ToolTip="PP Expiry" Watermark="PP Expiry (Eg. 08NOV33)" TabIndex="8" X="210" Y="330"></TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_210a0fda-e53e-481a-b876-a913f4d24e97" X="10" Y="370">Sex (M/F)</TextBlock>
+    <TextBox VarName="sex" Width="200" ToolTip="Sex" Watermark="Sex" TabIndex="9" X="210" Y="370"></TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_f12676ed-1dc8-440a-9946-f27d51003735" X="10" Y="410">Mobile (447777777777)</TextBlock>
+    <TextBox VarName="mobile" Width="200" ToolTip="Mobile Number" Watermark="Int Mobile (Eg. 447777777777)" TabIndex="10" X="210" Y="410"></TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_11b73215-0a15-4189-ab48-aa64c883e693" X="10" Y="450">Email (name//domain)</TextBlock>
+    <TextBox VarName="email" Width="200" ToolTip="Email" Watermark="Email Address (Eg. JAMES//RI.SC)" TabIndex="11" X="210" Y="450"></TextBox>
+  </QuestionsBlock>
+  <RunCommand StandardCommand="True">CFP/RCS-[name]</RunCommand>
+  <RunCommand StandardCommand="True">1Y/N.[last]/[first] [title]</RunCommand>
+  <RunCommand StandardCommand="True">10N/[title]</RunCommand>
+  <RunCommand StandardCommand="True">11N/[first]</RunCommand>
+  <RunCommand StandardCommand="True">12N/[last]</RunCommand>
+  <ConditionalAction Condition="[middle]==">
+    <True>
+      <RunCommand StandardCommand="True">13B</RunCommand>
+    </True>
+    <False>
+      <RunCommand StandardCommand="True">13N/[middle]</RunCommand>
+    </False>
+  </ConditionalAction>
+  <RunCommand StandardCommand="True">14N/[nationality]</RunCommand>
+  <RunCommand StandardCommand="True">15N/[dob]</RunCommand>
+  <RunCommand StandardCommand="True">16N/[pp_issuer]</RunCommand>
+  <RunCommand StandardCommand="True">17N/[pp_number]</RunCommand>
+  <RunCommand StandardCommand="True">18N/[pp_expiry]</RunCommand>
+  <RunCommand StandardCommand="True">19N/[sex]</RunCommand>
+  <RunCommand StandardCommand="True">20N/[mobile]</RunCommand>
+  <RunCommand StandardCommand="True">21N/[email]</RunCommand>
+  <RunCommand StandardCommand="True">CE</RunCommand>
+  <ShowMessage ShowInTerminal="True" ClearScreen="True">COMPLETE</ShowMessage>
+</ButtonConf>

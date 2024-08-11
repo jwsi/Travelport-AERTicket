@@ -1,0 +1,9 @@
+<ButtonConf ButtonName="DELETE" Description="Delete a client file" QuickCommand="DELETE">
+  <TextBox VarName="name" Question="Enter the passenger's name" Width="200" ToolTip="For help, execute LIST to see personnel">
+    <ValidationRules>
+      <RegEx ErrorMessage="INVALID NAME"><![CDATA[(^[A-Z]+ [A-Z]+$)]]></RegEx>
+    </ValidationRules>
+    <DefaultValue>FIRST LAST</DefaultValue>
+  </TextBox>
+  <RunCommand StandardCommand="True">CXP/RCS-[name]</RunCommand>
+</ButtonConf>
