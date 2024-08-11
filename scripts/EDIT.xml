@@ -18,6 +18,16 @@
   <GetString VarName="sex"><![CDATA[19N\/(.*)]]></GetString>
   <GetString VarName="mobile"><![CDATA[20N\/(.*)]]></GetString>
   <GetString VarName="email"><![CDATA[21N\/(.*)]]></GetString>
+  <GetString VarName="m1"><![CDATA[50YM\/M.(.*)]]></GetString>
+  <GetString VarName="m2"><![CDATA[51YM\/M.(.*)]]></GetString>
+  <GetString VarName="m3"><![CDATA[52YM\/M.(.*)]]></GetString>
+  <GetString VarName="m4"><![CDATA[53YM\/M.(.*)]]></GetString>
+  <GetString VarName="m5"><![CDATA[54YM\/M.(.*)]]></GetString>
+  <GetString VarName="m6"><![CDATA[55YM\/M.(.*)]]></GetString>
+  <GetString VarName="m7"><![CDATA[56YM\/M.(.*)]]></GetString>
+  <GetString VarName="m8"><![CDATA[57YM\/M.(.*)]]></GetString>
+  <GetString VarName="m9"><![CDATA[58YM\/M.(.*)]]></GetString>
+  <GetString VarName="m10"><![CDATA[59YM\/M.(.*)]]></GetString>
   <ConditionalAction Condition="[title]==">
     <True>
       <ShowMessage ShowInTerminal="True" ClearScreen="True">FILE DOES NOT EXIST</ShowMessage>
@@ -25,7 +35,7 @@
     </True>
     <False></False>
   </ConditionalAction>
-  <QuestionsBlock WindowFormTitle="Edit passenger file" SubmitButtonName="SAVE" WindowId="bc43a72f-b884-4fd5-8490-5e814a9a1868" Designer="True">
+  <QuestionsBlock WindowFormTitle="Edit passenger file" SubmitButtonName="NEXT" WindowId="bc43a72f-b884-4fd5-8490-5e814a9a1868" Designer="True">
     <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_ad0c7385-77e0-4065-afbe-4aee7ceeb59f" X="10" Y="10">Title</TextBlock>
     <TextBox VarName="title" Width="200" ToolTip="Title" Watermark="Title" TabIndex="0" X="210" Y="10">[title]</TextBox>
     <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_90a1a6eb-8198-4fff-9493-6d990e78e8a8" X="10" Y="50">First Name</TextBlock>
@@ -51,6 +61,28 @@
     <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_11b73215-0a15-4189-ab48-aa64c883e693" X="10" Y="450">Email (name//domain)</TextBlock>
     <TextBox VarName="email" Width="200" ToolTip="Email" Watermark="Email Address (Eg. JAMES//RI.SC)" TabIndex="11" X="210" Y="450">[email]</TextBox>
   </QuestionsBlock>
+  <QuestionsBlock WindowFormTitle="Edit passenger file" SubmitButtonName="SAVE" WindowId="bc43a72f-b884-4fd5-8490-5e814a9a1868" Designer="True">
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_ad0c7385-77e0-4065-afbe-4aee7ceeb59f" X="10" Y="10">Mileage 1</TextBlock>
+    <TextBox VarName="m1" Width="200" ToolTip="Mileage 1" Watermark="EK123456789/UA/JL/FZ" TabIndex="0" X="210" Y="10">[m1]</TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_90a1a6eb-8198-4fff-9493-6d990e78e8a8" X="10" Y="50">Mileage 2</TextBlock>
+    <TextBox VarName="m2" Width="200" ToolTip="Mileage 2" Watermark="EK123456789/UA/JL/FZ" TabIndex="1" X="210" Y="50">[m2]</TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_58c667e4-8bd7-4062-8086-677286c20198" X="10" Y="90">Mileage 3</TextBlock>
+    <TextBox VarName="m3" Width="200" ToolTip="Mileage 3" Watermark="EK123456789/UA/JL/FZ" TabIndex="2" X="210" Y="90">[m3]</TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_cdae18bc-ba0f-4f7c-9846-07b8ced94b37" X="10" Y="130">Mileage 4</TextBlock>
+    <TextBox VarName="m4" Width="200" ToolTip="Mileage 4" Watermark="EK123456789/UA/JL/FZ" TabIndex="3" X="210" Y="130">[m4]</TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_284df8da-93b1-4208-b832-5b6e350408f1" X="10" Y="170">Mileage 5</TextBlock>
+    <TextBox VarName="m5" Width="200" ToolTip="Mileage 5" Watermark="EK123456789/UA/JL/FZ" TabIndex="4" X="210" Y="170">[m5]</TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_79be8a44-861d-48fc-95f5-fc65d0760a3c" X="10" Y="210">Mileage 6</TextBlock>
+    <TextBox VarName="m6" Width="200" ToolTip="Mileage 6" Watermark="EK123456789/UA/JL/FZ" TabIndex="5" X="210" Y="210">[m7]</TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_9c41e6f9-d035-4fee-8d66-16aeaab0331b" X="10" Y="250">Mileage 7</TextBlock>
+    <TextBox VarName="m7" Width="200" ToolTip="Mileage 7" Watermark="EK123456789/UA/JL/FZ" TabIndex="6" X="210" Y="250">[m7]</TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_322425d7-1b5f-475c-9b8c-9a19be4aa3a9" X="10" Y="290">Mileage 8</TextBlock>
+    <TextBox VarName="m8" Width="200" ToolTip="Mileage 8" Watermark="EK123456789/UA/JL/FZ" TabIndex="7" X="210" Y="290">[m8]</TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_3367281d-7dff-49a1-b355-41284b5d1571" X="10" Y="330">Mileage 9</TextBlock>
+    <TextBox VarName="m9" Width="200" ToolTip="Mileage 9" Watermark="EK123456789/UA/JL/FZ" TabIndex="8" X="210" Y="330">[m9]</TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_7d3b027b-63e2-4b44-b9ec-35b7821074f0" X="10" Y="370">Mileage 10</TextBlock>
+    <TextBox VarName="m10" Width="200" ToolTip="Mileage 10" Watermark="EK123456789/UA/JL/FZ" TabIndex="8" X="210" Y="370">[m10]</TextBox>
+  </QuestionsBlock>
   <RunCommand StandardCommand="True">C@1Y/N.[last]/[first] [title]</RunCommand>
   <RunCommand StandardCommand="True">C@10N/[title]</RunCommand>
   <RunCommand StandardCommand="True">C@11N/[first]</RunCommand>
@@ -71,5 +103,85 @@
   <RunCommand StandardCommand="True">C@19N/[sex]</RunCommand>
   <RunCommand StandardCommand="True">C@20N/[mobile]</RunCommand>
   <RunCommand StandardCommand="True">C@21N/[email]</RunCommand>
+  <ConditionalAction Condition="[m1]==">
+    <True>
+      <RunCommand StandardCommand="True">C@50B</RunCommand>
+    </True>
+    <False>
+      <RunCommand StandardCommand="True">C@50YM/M.[m1]</RunCommand>
+    </False>
+  </ConditionalAction>
+  <ConditionalAction Condition="[m2]==">
+    <True>
+      <RunCommand StandardCommand="True">C@51B</RunCommand>
+    </True>
+    <False>
+      <RunCommand StandardCommand="True">C@51YM/M.[m2]</RunCommand>
+    </False>
+  </ConditionalAction>
+  <ConditionalAction Condition="[m3]==">
+    <True>
+      <RunCommand StandardCommand="True">C@52B</RunCommand>
+    </True>
+    <False>
+      <RunCommand StandardCommand="True">C@52YM/M.[m3]</RunCommand>
+    </False>
+  </ConditionalAction>
+  <ConditionalAction Condition="[m4]==">
+    <True>
+      <RunCommand StandardCommand="True">C@53B</RunCommand>
+    </True>
+    <False>
+      <RunCommand StandardCommand="True">C@53YM/M.[m4]</RunCommand>
+    </False>
+  </ConditionalAction>
+  <ConditionalAction Condition="[m5]==">
+    <True>
+      <RunCommand StandardCommand="True">C@54B</RunCommand>
+    </True>
+    <False>
+      <RunCommand StandardCommand="True">C@54YM/M.[m5]</RunCommand>
+    </False>
+  </ConditionalAction>
+  <ConditionalAction Condition="[m6]==">
+    <True>
+      <RunCommand StandardCommand="True">C@55B</RunCommand>
+    </True>
+    <False>
+      <RunCommand StandardCommand="True">C@55YM/M.[m6]</RunCommand>
+    </False>
+  </ConditionalAction>
+  <ConditionalAction Condition="[m7]==">
+    <True>
+      <RunCommand StandardCommand="True">C@56B</RunCommand>
+    </True>
+    <False>
+      <RunCommand StandardCommand="True">C@56YM/M.[m7]</RunCommand>
+    </False>
+  </ConditionalAction>
+  <ConditionalAction Condition="[m8]==">
+    <True>
+      <RunCommand StandardCommand="True">C@57B</RunCommand>
+    </True>
+    <False>
+      <RunCommand StandardCommand="True">C@57YM/M.[m8]</RunCommand>
+    </False>
+  </ConditionalAction>
+  <ConditionalAction Condition="[m9]==">
+    <True>
+      <RunCommand StandardCommand="True">C@58B</RunCommand>
+    </True>
+    <False>
+      <RunCommand StandardCommand="True">C@58YM/M.[m9]</RunCommand>
+    </False>
+  </ConditionalAction>
+  <ConditionalAction Condition="[m10]==">
+    <True>
+      <RunCommand StandardCommand="True">C@59B</RunCommand>
+    </True>
+    <False>
+      <RunCommand StandardCommand="True">C@59YM/M.[m10]</RunCommand>
+    </False>
+  </ConditionalAction>
   <ShowMessage ShowInTerminal="True" ClearScreen="True">COMPLETE</ShowMessage>
 </ButtonConf>
