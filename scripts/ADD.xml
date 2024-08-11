@@ -27,6 +27,14 @@
   <GetString VarName="sex"><![CDATA[19N\/(.*)]]></GetString>
   <GetString VarName="mobile"><![CDATA[20N\/(.*)]]></GetString>
   <GetString VarName="email"><![CDATA[21N\/(.*)]]></GetString>
+  <ConditionalAction Condition="[title]==">
+    <True>
+      <RunCommand StandardCommand="True">I</RunCommand>
+      <ShowMessage ShowInTerminal="True" ClearScreen="True">FILE DOES NOT EXIST - CLEARED PNR</ShowMessage>
+      <Exit />
+    </True>
+    <False></False>
+  </ConditionalAction>
   <RunCommand StandardCommand="True">CMP/P-[number]</RunCommand>
   <ConditionalAction Condition="[middle]==">
     <True>
