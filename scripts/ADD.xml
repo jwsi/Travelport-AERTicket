@@ -35,6 +35,34 @@
     </True>
     <False></False>
   </ConditionalAction>
+  <JsSnippet VarName="age">
+    <Code><![CDATA[birthDate = new Date([dob]);
+currentDate = new Date();
+
+var years = (currentDate.getFullYear() - birthDate.getFullYear());
+
+if (currentDate.getMonth() < birthDate.getMonth() || 
+    currentDate.getMonth() == birthDate.getMonth() && currentDate.getDate() < birthDate.getDate()) {
+    years--;
+}
+
+return years.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});]]></Code>
+  </JsSnippet>
+  <ConditionalAction Condition="[age]&gt;11">
+    <True>
+      <RunCommand StandardCommand="True" ClearScreen="False">N.1[last]/[first] [title]</RunCommand>
+    </True>
+    <False>
+      <ConditionalAction Condition="([age] == 00) OR ([age] == 01)">
+        <True>
+          <RunCommand StandardCommand="True" ClearScreen="False">N.I/1[last]/[first] [title]*[dob]</RunCommand>
+        </True>
+        <False>
+          <RunCommand StandardCommand="True" ClearScreen="False">N.1[last]/[first] [title]*P-C[age] DOB[dob]</RunCommand>
+        </False>
+      </ConditionalAction>
+    </False>
+  </ConditionalAction>
   <RunCommand StandardCommand="True">CMP/P-[number]</RunCommand>
   <ConditionalAction Condition="[middle]==">
     <True>
