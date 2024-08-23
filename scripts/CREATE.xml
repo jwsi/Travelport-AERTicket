@@ -54,7 +54,6 @@
     <TextBox VarName="m10" Width="300" ToolTip="Mileage 10" Watermark="EK123456789/UA/JL/FZ" TabIndex="8" X="110" Y="370"></TextBox>
   </QuestionsBlock>
   <RunCommand StandardCommand="True">CFP/RCS-[name]</RunCommand>
-  <RunCommand StandardCommand="True">1Y/N.[last]/[first] [title]</RunCommand>
   <RunCommand StandardCommand="True">10N/[title]</RunCommand>
   <RunCommand StandardCommand="True">11N/[first]</RunCommand>
   <RunCommand StandardCommand="True">12N/[last]</RunCommand>
