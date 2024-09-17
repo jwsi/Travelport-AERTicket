@@ -10,7 +10,6 @@
   </ConditionalAction>
   <RunCommand StandardCommand="True">NP.AGYKD-890210</RunCommand>
   <RunCommand StandardCommand="True">NP.AGYTKT-46</RunCommand>
-  <RunCommand StandardCommand="True">NP.AGYNOPRCG</RunCommand>
   <DateTime VarName="today_date" DateTimeFormat="ddMMM" Language="en" AddOrRemoveDays="0" AddOrRemoveHours="0" AddOrRemoveMinutes="0" TimeZone="GMT Standard Time"></DateTime>
   <RunCommand StandardCommand="True">T.@TAU/[today_date]</RunCommand>
   <RunCommand StandardCommand="True">R.RCSTRAVEL</RunCommand>
