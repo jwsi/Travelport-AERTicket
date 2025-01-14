@@ -1,0 +1,30 @@
+<ButtonConf ButtonName="DIVIDE" Description="DIVIDE PNR" QuickCommand="DIVIDE">
+  <Variable VarName="passengers">%PassengersList({LastName}/{FirstName}**{PassengerNumber})%</Variable>
+  <CheckListBox Width="200" SelectDefaultAll="False" SingleSelect="False" IsRadioButton="False" IsMandatory="True" Display="Value" Return="Key" VarName="divided_passengers" Question="Select Passengers to Divide from PNR">
+  	[passengers]
+  </CheckListBox>
+  <Variable VarName="divide_string"></Variable>
+  <ForEach>
+    <ElementsList>[divided_passengers]</ElementsList>
+    <Action>
+      <ConditionalAction Condition="[divide_string]==">
+        <True>
+          <Variable VarName="divide_string">[@]</Variable>
+        </True>
+        <False>
+          <Variable VarName="divide_string">[divide_string].[@]</Variable>
+        </False>
+      </ConditionalAction>
+    </Action>
+  </ForEach>
+  <RunCommand StandardCommand="True">FXALL</RunCommand>
+  <RunCommand StandardCommand="True">R.RCSTRAVEL</RunCommand>
+  <RunCommand StandardCommand="True">ER</RunCommand>
+  <RunCommand StandardCommand="True">DP[divide_string]</RunCommand>
+  <RunCommand StandardCommand="True">R.RCSTRAVEL</RunCommand>
+  <RunCommand StandardCommand="True">F</RunCommand>
+  <RunCommand StandardCommand="True">R.RCSTRAVEL</RunCommand>
+  <RunCommand StandardCommand="True">ER</RunCommand>
+  <RunCommand StandardCommand="True">REINSTATE</RunCommand>
+  <ShowMessage ShowInTerminal="True" ClearScreen="False">COMPLETE</ShowMessage>
+</ButtonConf>
