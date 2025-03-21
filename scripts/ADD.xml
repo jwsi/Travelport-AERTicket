@@ -9,12 +9,12 @@
   <ArithmeticalOperation VarName="number">[passenger_count]+1</ArithmeticalOperation>
   <ConditionalAction Condition="[number]==1">
     <True>
-      <RunCommand StandardCommand="True">C*RCS</RunCommand>
+      <RunCommand StandardCommand="True">C*ATP</RunCommand>
       <RunCommand StandardCommand="True">CM/</RunCommand>
     </True>
     <False></False>
   </ConditionalAction>
-  <RunCommand StandardCommand="True">C*RCS-[name]</RunCommand>
+  <RunCommand StandardCommand="True">C*ATP-[name]</RunCommand>
   <GetString VarName="title"><![CDATA[10N\/(.*)]]></GetString>
   <GetString VarName="first"><![CDATA[11N\/(.*)]]></GetString>
   <GetString VarName="last"><![CDATA[12N\/(.*)]]></GetString>
