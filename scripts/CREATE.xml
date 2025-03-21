@@ -53,7 +53,7 @@
     <TextBlock Width="100" Bold="True" VarName="SBAuto_TextBlock_7d3b027b-63e2-4b44-b9ec-35b7821074f0" X="10" Y="370">Mileage 10</TextBlock>
     <TextBox VarName="m10" Width="300" ToolTip="Mileage 10" Watermark="EK123456789/UA/JL/FZ" TabIndex="8" X="110" Y="370"></TextBox>
   </QuestionsBlock>
-  <RunCommand StandardCommand="True">CFP/RCS-[name]</RunCommand>
+  <RunCommand StandardCommand="True">CFP/ATP-[name]</RunCommand>
   <RunCommand StandardCommand="True">10N/[title]</RunCommand>
   <RunCommand StandardCommand="True">11N/[first]</RunCommand>
   <RunCommand StandardCommand="True">12N/[last]</RunCommand>

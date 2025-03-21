@@ -18,12 +18,12 @@
     </Action>
   </ForEach>
   <RunCommand StandardCommand="True">FXALL</RunCommand>
-  <RunCommand StandardCommand="True">R.RCSTRAVEL</RunCommand>
+  <RunCommand StandardCommand="True">R.ATP</RunCommand>
   <RunCommand StandardCommand="True">ER</RunCommand>
   <RunCommand StandardCommand="True">DP[divide_string]</RunCommand>
-  <RunCommand StandardCommand="True">R.RCSTRAVEL</RunCommand>
+  <RunCommand StandardCommand="True">R.ATP</RunCommand>
   <RunCommand StandardCommand="True">F</RunCommand>
-  <RunCommand StandardCommand="True">R.RCSTRAVEL</RunCommand>
+  <RunCommand StandardCommand="True">R.ATP</RunCommand>
   <RunCommand StandardCommand="True">ER</RunCommand>
   <RunCommand StandardCommand="True">REINSTATE</RunCommand>
   <ShowMessage ShowInTerminal="True" ClearScreen="False">COMPLETE</ShowMessage>

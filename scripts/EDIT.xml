@@ -5,7 +5,7 @@
     </ValidationRules>
     <DefaultValue>FIRST LAST</DefaultValue>
   </TextBox>
-  <RunCommand StandardCommand="True">C*RCS-[name]</RunCommand>
+  <RunCommand StandardCommand="True">C*ATP-[name]</RunCommand>
   <GetString VarName="title"><![CDATA[10N\/(.*)]]></GetString>
   <GetString VarName="first"><![CDATA[11N\/(.*)]]></GetString>
   <GetString VarName="last"><![CDATA[12N\/(.*)]]></GetString>
