@@ -1,4 +1,25 @@
 <ButtonConf ButtonName="HOLD" Description="Hold the flight" QuickCommand="HOLD">
+  <BookingFileBrowser VarName="segments" RefreshBookingFile="False" LoadFiledFaresDetails="False">AirSegments.Count</BookingFileBrowser>
+  <ConditionalAction Condition="[segments]&gt;1">
+    <True>
+      <ForEach>
+        <ForStatement StartNumber="1" EndNumber="[segments]" Step="1" />
+        <Action>
+          <BreakForEach Condition="[@]==[segments]"></BreakForEach>
+          <ArithmeticalOperation VarName="previous">[@]-1</ArithmeticalOperation>
+          <BookingFileBrowser VarName="origin" RefreshBookingFile="False" LoadFiledFaresDetails="False">AirSegments[[@]].Origin.Code</BookingFileBrowser>
+          <BookingFileBrowser VarName="destination" RefreshBookingFile="False" LoadFiledFaresDetails="False">AirSegments[[previous]].Destination.Code</BookingFileBrowser>
+          <ConditionalAction Condition="[origin]!=[destination]">
+            <True>
+              <RunCommand StandardCommand="True">Y</RunCommand>
+            </True>
+            <False></False>
+          </ConditionalAction>
+        </Action>
+      </ForEach>
+    </True>
+    <False></False>
+  </ConditionalAction>
   <BookingFileBrowser VarName="ticket_date_raw" RefreshBookingFile="False" LoadFiledFaresDetails="False">FiledFares[0].Fares[0].TrueLastDateToTicket</BookingFileBrowser>
   <DateTime VarName="ticket_date" InputDateLanguage="en" InputDateFormat="dd/MM/yyyy HH:mm:ss" DateTimeFormat="ddMMM" Language="en" AddOrRemoveDays="0" AddOrRemoveHours="0" AddOrRemoveMinutes="0" TimeZone="GMT Standard Time">[ticket_date_raw]</DateTime>
   <RunCommand StandardCommand="True">T.TAU/[ticket_date]</RunCommand>
