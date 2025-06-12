@@ -1,0 +1,39 @@
+<ButtonConf ButtonName="DCPAY" Description="Direct Carrier Pay" QuickCommand="DCPAY">
+  <BookingFileBrowser VarName="segments" RefreshBookingFile="False" LoadFiledFaresDetails="False">AirSegments.Count</BookingFileBrowser>
+  <ConditionalAction Condition="[segments]&gt;1">
+    <True>
+      <ForEach>
+        <ForStatement StartNumber="1" EndNumber="[segments]" Step="1" />
+        <Action>
+          <BreakForEach Condition="[@]==[segments]"></BreakForEach>
+          <ArithmeticalOperation VarName="previous">[@]-1</ArithmeticalOperation>
+          <BookingFileBrowser VarName="origin" RefreshBookingFile="False" LoadFiledFaresDetails="False">AirSegments[[@]].Origin.Code</BookingFileBrowser>
+          <BookingFileBrowser VarName="destination" RefreshBookingFile="False" LoadFiledFaresDetails="False">AirSegments[[previous]].Destination.Code</BookingFileBrowser>
+          <ConditionalAction Condition="[origin]!=[destination]">
+            <True>
+              <RunCommand StandardCommand="True">Y</RunCommand>
+            </True>
+            <False></False>
+          </ConditionalAction>
+        </Action>
+      </ForEach>
+    </True>
+    <False></False>
+  </ConditionalAction>
+  <RunCommand StandardCommand="True">FQ</RunCommand>
+  <DateTime VarName="ticket_date" InputDateLanguage="en" InputDateFormat="dd/MM/yyyy HH:mm:ss" DateTimeFormat="ddMMM" Language="en" AddOrRemoveDays="0" AddOrRemoveHours="0" AddOrRemoveMinutes="0" TimeZone="GMT Standard Time">[ticket_date_raw]</DateTime>
+  <RunCommand StandardCommand="True">T.TAU/[ticket_date]</RunCommand>
+  <QuestionsBlock WindowFormTitle="Add credit card info" SubmitButtonName="Submit" WindowId="bc43a72f-b884-4fd5-8490-5e814a9a1868" Designer="True">
+    <TextBlock FontColor="#FFFF0000" FontSize="16" Bold="True" VarName="SBAuto_TextBlock_451d43ea-b633-4c6a-9524-88fa4522f8fe" X="10" Y="10">Only AMEX Cards can be used!</TextBlock>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_ad0c7385-77e0-4065-afbe-4aee7ceeb59f" X="10" Y="50">Card Number</TextBlock>
+    <TextBox VarName="card_number" Width="200" ToolTip="Card Number" Watermark="0000 000000 00000" TabIndex="0" X="210" Y="50"></TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_90a1a6eb-8198-4fff-9493-6d990e78e8a8" X="10" Y="90">Expiry Date (MMYY)</TextBlock>
+    <TextBox VarName="expiry" Width="200" ToolTip="Expiry (MMYY)" Watermark="MMYY" TabIndex="1" X="210" Y="90"></TextBox>
+    <TextBlock Width="200" Bold="True" VarName="SBAuto_TextBlock_58c667e4-8bd7-4062-8086-677286c20198" X="10" Y="130">Security Code (4 Digits)</TextBlock>
+    <TextBox VarName="security" Width="200" ToolTip="Security Code" Watermark="0000" TabIndex="2" X="210" Y="130"></TextBox>
+  </QuestionsBlock>
+  <RunCommand StandardCommand="True">ZF/CC/AX[card_number]/D[expiry]/S[security]</RunCommand>
+  <RunCommand StandardCommand="True">R.ATP</RunCommand>
+  <RunCommand StandardCommand="True">ER</RunCommand>
+  <ShowMessage ShowInTerminal="True" ClearScreen="True">COMPLETE</ShowMessage>
+</ButtonConf>

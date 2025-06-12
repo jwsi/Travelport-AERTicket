@@ -72,9 +72,13 @@ Each of the scripts is designed to perform a unique and useful function and can 
 
 - `TICKET` - This automatically adds in AERTicket UK directives for ticketing into the notepad, determines whether the fare is private or public and then submits to the ticketing queue at AERTicket.
 
+- `DCPAY` - This organises payment and booking for all direct carriers (EasyJet, RyanAir etc...). This should be executed once all segments are present in the PNR.
+
 - `DIVIDE` - This brings up a GUI which allows a user to select which passengers to divide out of the existing PNR. This is a useful command when travellers itineraries are no longer identical and need to be changed separately. Upon successful execution, a new linked PNR will be created for the divided passenger.
 
 - `CANCEL` - This cancels all segments and fares in the currently open PNR.
+
+- `SEATX` - This cancels all seat reservations for all segments in the PNR.
 
 ## Issues/Problems
 
