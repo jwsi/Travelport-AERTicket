@@ -29,8 +29,7 @@
   <GetString VarName="email"><![CDATA[21N\/(.*)]]></GetString>
   <ConditionalAction Condition="[title]==">
     <True>
-      <RunCommand StandardCommand="True">I</RunCommand>
-      <ShowMessage ShowInTerminal="True" ClearScreen="True">FILE DOES NOT EXIST - CLEARED PNR</ShowMessage>
+      <ShowMessage ShowInTerminal="True" ClearScreen="True">FILE DOES NOT EXIST - TRY AGAIN</ShowMessage>
       <Exit />
     </True>
     <False></False>
