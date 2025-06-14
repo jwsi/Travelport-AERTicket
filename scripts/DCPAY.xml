@@ -21,8 +21,9 @@
     <False></False>
   </ConditionalAction>
   <RunCommand StandardCommand="True">FQ</RunCommand>
-  <QuestionsBlock WindowFormTitle="Proceed to ticketing?" SubmitButtonName="Yes" WindowId="bc43a72f-b884-4fd5-8490-5e814a9a1868" Designer="True">
-    <TextBlock FontSize="16" Bold="False" VarName="SBAuto_TextBlock_5f388627-b9d1-4822-93b7-4e684e058efd" X="10" Y="10">Would you like to proceed?</TextBlock>
+  <QuestionsBlock WindowFormTitle="Proceed to ticketing?" SubmitButtonName="CONTINUE" WindowId="bc43a72f-b884-4fd5-8490-5e814a9a1868" Designer="True">
+    <TextBlock FontSize="16" Bold="True" VarName="SBAuto_TextBlock_5f388627-b9d1-4822-93b7-4e684e058efd" X="10" Y="10">Would you like to proceed?</TextBlock>
+    <TextBlock FontSize="16" Bold="False" VarName="SBAuto_TextBlock_5f388627-b9d1-4822-93b7-4e684e058efd" X="10" Y="50">Ensure seats have been selected first!</TextBlock>
   </QuestionsBlock>
   <DateTime VarName="ticket_date" InputDateLanguage="en" InputDateFormat="dd/MM/yyyy HH:mm:ss" DateTimeFormat="ddMMM" Language="en" AddOrRemoveDays="0" AddOrRemoveHours="0" AddOrRemoveMinutes="0" TimeZone="GMT Standard Time">[ticket_date_raw]</DateTime>
   <RunCommand StandardCommand="True">T.TAU/[ticket_date]</RunCommand>
